@@ -63,7 +63,11 @@ app.get("/states/:stateId/", async (request, response) => {
 
   const getStateInfo = await db.get(getStateQuery);
 
-  response.send(getStateInfo);
+  response.send({
+    stateId: getStateInfo.state_id,
+    stateName: getStateInfo.state_name,
+    population: getStateInfo.population,
+  });
 });
 
 // post the data based on given district id
@@ -103,7 +107,15 @@ app.get("/districts/:districtId/", async (request, response) => {
 
   const getDistrictInfo = await db.get(getQuery);
 
-  response.send(getDistrictInfo);
+  response.send({
+    districtId: getDistrictInfo.district_id,
+    districtName: getDistrictInfo.district_name,
+    stateId: getDistrictInfo.state_id,
+    cases: getDistrictInfo.cases,
+    cured: getDistrictInfo.cured,
+    active: getDistrictInfo.active,
+    deaths: getDistrictInfo.deaths,
+  });
 });
 
 //delete district from district table based on given districtId

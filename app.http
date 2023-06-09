@@ -5,7 +5,7 @@ GET http://localhost:3000/states/
 
 ### get state info based on given stateId2
 
-GET http://localhost:3000/states/1/
+GET http://localhost:3000/states/8/
 
 ### post district API3
 
